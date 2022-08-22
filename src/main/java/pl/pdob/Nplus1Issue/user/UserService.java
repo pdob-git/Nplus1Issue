@@ -1,8 +1,8 @@
 package pl.pdob.Nplus1Issue.user;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -17,7 +17,10 @@ class UserService {
         return userRepository.findById(id).orElse(new User());
     }
 
-    public List<User> getAll(){
+    public List<User> getAllSQLJoinFetch(){
+        return userRepository.findAllUsers();
+    }
+    public List<User> getAllEntityGraph(){
         return userRepository.findAll();
     }
 }

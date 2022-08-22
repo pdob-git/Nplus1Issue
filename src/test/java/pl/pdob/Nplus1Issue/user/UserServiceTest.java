@@ -7,8 +7,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @DataJpaTest
 class UserServiceTest {
 
@@ -41,7 +39,7 @@ class UserServiceTest {
 
 
         //when
-        List<User> all = userService.getAll();
+        List<User> all = userService.getAllSQLJoinFetch();
 
         //then
         all.forEach(System.out::println);
